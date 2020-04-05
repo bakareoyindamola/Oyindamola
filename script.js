@@ -1,21 +1,45 @@
-let name = "oyindamola";
-let course = ["HTML", "CSS", "JavaScript", "NodeJs"];
+let data = [
+    {
+        principal: 2500,
+        time: 1.8
+    },
+    {
+        principal: 1000,
+        time: 5
+    },
+    {
+        principal: 3000,
+        time: 1
+    },
+    {
+        principal: 2000,
+        time: 3
+    }
+]
 
-if((course.length%2) === 0){
-    const evenNumber = [];
-    for(let i=0; i<=200; i++) {
-        if( i%2 === 0 ){
-            evenNumber.push(i);
+function interestCalculator(arr) {
+    for (let i of data) {
+        if (i.principal >= 2500 && i.time > 1  && i.time < 3) {
+            i.rate = 3;
         }
-    }
-    console.log(evenNumber);
-} else {
-    const oddNumber = [];
-    for(let i=0; i<=200; i++) {
-        if( i%2 !== 0 ){
-            oddNumber.push(i);
+        else if  (i.principal >= 2500 && i.time >= 3) {
+            i.rate = 4;
         }
+        else if (i.principal < 2500 || i.time <= 1) {
+            i.rate = 2;
+        }
+        else {
+            i.rate = 1;
+        }
+
+        i.interest = (i.principal * i.rate * i.time) / 100;
     }
-    console.log(oddNumber);
+
+    let interestData = [...arr];
+
+    console.log(interestData);
+    return interestData;
+
+
 }
-
+interestCalculator(data);
