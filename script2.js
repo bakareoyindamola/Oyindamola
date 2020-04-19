@@ -64,3 +64,4 @@ let divisible = (num) => {
 }
 
 console.log( divisible(100) );
+console.log( divisible(500) );
